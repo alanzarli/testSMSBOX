@@ -31,14 +31,15 @@
              "Authorization: App pub-533278fa1c8055ca13d216348907a8cd-496efc19-8a6e-41d9-94a1-36b54fcc8748",
              "Content-Type: multipart/form-data;"
         ];
-        $data = array('file' => $cfile);
+        $data = array('file' => $cfile, 'user_reference' => '12345');
         var_dump($data);
         curl_setopt_array($ch, [
-            CURLOPT_URL => "https://api.smsbox.net/vmm/1.0/xml/import",
+            CURLOPT_URL => "https://api.smsbox.net/vmm/1.0/json/import",
             CURLOPT_HTTPHEADER => $headers,
             CURLOPT_POST => true,
             CURLOPT_POSTFIELDS => $data,
             CURLOPT_RETURNTRANSFER => true
+            
             
 
         ]);
