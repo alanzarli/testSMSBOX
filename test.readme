@@ -1,0 +1,21 @@
+
+DOC TEST TECHNIQUE :
+
+
+Partie 1 : Importer via l'API un fichier sonore enregistré en local (import) :
+
+1 : Mise en place de la structure HTML pour permettre le dépôt du fichier sonore.
+2 : Initiation de cURL.
+3 : Mettre le fichier au format cURLFile + Mise en place dans un tableau des paramètres de la requête.
+4 : On accede a l'authentification via la clef API (headers).
+5 : On definit les options et leurs valeurs avec curl_setopt_array().
+6 : On exécute la requête et ferme la session cURL.
+
+Partie 2 : Déposer un fichier sonore sur un répondeur via l'API (send) : 
+
+1 : Initiation de cURL.
+2 : On récupère le file_id et le numero de telephone au format international + Mise en place dans un tableau des parametres de la requete.
+3 : On accède a l'authentification via la clef API (headers).
+4 : On defini les options et leurs valeurs avec curl_setopt_array().
+5 : On exécute la requête et ferme la session cURL.
+ 
