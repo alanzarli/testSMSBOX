@@ -23,36 +23,32 @@
     <?php 
 
         $audio = $_FILES["audio"];
-        var_dump($audio);
         $ch = curl_init();
         $cfile = new CURLFile($audio["tmp_name"],$audio["type"], $audio["name"]);
-
-
-       
-        
+        /* $cfile = curl_file_create($audio["name"],$audio["type"],$audio["name"]); */
 
         $headers = [
              "Authorization: App pub-533278fa1c8055ca13d216348907a8cd-496efc19-8a6e-41d9-94a1-36b54fcc8748",
-             "Content-type: application/json';"
+             "Content-Type: multipart/form-data;"
         ];
-        $data = array('test_file' => $cfile);
+        $data = array('file' => $cfile);
         var_dump($data);
         curl_setopt_array($ch, [
+            CURLOPT_URL => "https://api.smsbox.net/vmm/1.0/xml/import",
             CURLOPT_HTTPHEADER => $headers,
             CURLOPT_POST => true,
             CURLOPT_POSTFIELDS => $data,
-            CURLOPT_URL => "https://api.smsbox.net/vmm/1.0/xml/import",
             CURLOPT_RETURNTRANSFER => true
             
 
         ]);
         
         $finalData = curl_exec($ch);
-     
-        curl_close($ch);
-
         var_dump($finalData);
 
+        curl_close($ch);
+
+        
 
        
     ?>
